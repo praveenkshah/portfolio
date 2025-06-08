@@ -3,13 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Change this to your default branch if it's not main
+      - main # Ensure this is your default branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # To allow pushing to the gh-pages branch
+      contents: write # To allow pushing to the main branch
 
     steps:
       - name: Checkout 🛎️
@@ -26,10 +26,13 @@ jobs:
       - name: Build 🏗️
         run: npm run build
 
+      - name: Create CNAME file
+        run: echo "yourdomain.com" > ./out/CNAME # Replace with your actual domain
+
       - name: Deploy to GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
-          publish_branch: gh-pages
+          publish_branch: main # Deploy to the main branch for User Pages
           force_orphan: true 
