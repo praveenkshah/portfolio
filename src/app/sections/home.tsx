@@ -189,7 +189,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
               <Button
-                href="/resume.pdf"
+                href={`/portfolio/resume.pdf`}
                 label="Download Resume"
                 icon={
                   <svg
