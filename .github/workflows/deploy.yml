@@ -31,5 +31,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
-          publish_branch: main # Deploy to the main branch for User Pages
+          publish_branch: gh-pages # Deploy to the gh-pages branch
           force_orphan: true 
